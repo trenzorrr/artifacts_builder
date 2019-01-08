@@ -2,10 +2,10 @@
 
 case "$TRAVIS_OS_NAME" in
     linux)
-        docker exec -it buildct /build/xmrigCCMin-static-build.sh || exit 1
+        docker exec -it buildct /build/mcc-build.sh || exit 1
         ;;
     osx)
         cd utils/buildscripts
-        bash -x ./xmrigCCMin-static-build.sh mac
+        bash -x ./mcc-build.sh mac
         ;;
 esac
