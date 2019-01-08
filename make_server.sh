@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./xmrigCCServer-dynamic-build.sh || exit 1
+docker exec -it /build/xmrigCCServer-dynamic-build.sh || exit 1

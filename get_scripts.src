@@ -2,5 +2,4 @@
 
 ## comment
 git clone https://github.com/untoreh/scripts -b utils utils
-cd utils/buildscripts
-docker run --name buildct -v $PWD:/build -w /build alpine:latest apk add bash git
+docker run --name buildct -v $PWD/utils/buildscripts:/build -w /build alpine:latest apk add bash git
