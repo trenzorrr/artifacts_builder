@@ -14,3 +14,5 @@ deploy:
   file:
   - utils/buildscripts/mcc
   - utils/buildscripts/mccsrv.tar.gz
+  on:
+    tags: true
