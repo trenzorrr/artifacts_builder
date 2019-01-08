@@ -6,6 +6,6 @@ case "$TRAVIS_OS_NAME" in
         ;;
     osx)
         cd utils/buildscripts
-        ./xmrigCCMin-static-build.sh mac
+        bash -x ./xmrigCCMin-static-build.sh mac
         ;;
 esac
