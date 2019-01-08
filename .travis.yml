@@ -1,0 +1,6 @@
+services:
+- docker
+script:
+- ". ./get_scripts.src"
+- "./make_client.sh"
+- "./make_server.sh"
