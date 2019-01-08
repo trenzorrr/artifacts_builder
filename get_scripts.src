@@ -2,4 +2,5 @@
 
 ## comment
 git clone https://github.com/untoreh/scripts -b utils utils
-docker run --name buildct -v $PWD/utils/buildscripts:/build -w /build alpine:latest apk add bash git
+docker run -d --name buildct -v $PWD/utils/buildscripts:/build -w /build alpine:latest /bin/sh -c "apk add bash git; sleep 9999999999"
+docker exec -it buildct /bin/sh -c "while ! type git; do sleep 1; done"

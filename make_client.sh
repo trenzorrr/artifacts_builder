@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker exec -it /build/xmrigCCMin-static-build.sh || exit 1
+docker exec -it buildct /build/xmrigCCMin-static-build.sh || exit 1
