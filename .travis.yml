@@ -7,6 +7,8 @@ script:
 - ". ./get_scripts.src"
 - "./make_client.sh"
 - "./make_server.sh"
+- "./make_proxy.sh"
+- "./make_bridge.sh"
 deploy:
   provider: releases
   api_key:
@@ -15,6 +17,8 @@ deploy:
   - utils/buildscripts/mcc
   - utils/buildscripts/mcc_osx
   - utils/buildscripts/mccsrv.tar.gz
+  - xnp/xnp.zip
+  - xnp/mm.zip
   on:
     tags: true
 after_success:
