@@ -1,5 +1,6 @@
 services:
 - docker
+if: tag IS present
 jobs:
   language: minimal
   include:
@@ -22,7 +23,7 @@ jobs:
     os: linux
     script:
     - ". ./get_scripts_pb.src"
-    - "./make_proxy.sh"
+    # - "./make_proxy.sh"
     - "./make_bridge.sh"
 deploy:
   provider: releases
