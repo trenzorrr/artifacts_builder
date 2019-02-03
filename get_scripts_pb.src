@@ -1,0 +1,15 @@
+#!/bin/sh
+
+## get scripts
+git clone --depth=1 https://github.com/untoreh/scripts -b xnp xnp
+
+## on linux build inside ct
+case "$TRAVIS_OS_NAME" in
+    linux)
+        ## start the container
+        docker run -d --name buildct_ubu -v $PWD/xnp/:/build -w /build ubuntu:xenial /bin/sh -c "sleep 9999999999"
+
+        ## wait for packages
+        docker exec -it buildct_ubu /bin/sh -c "apt update && apt install -y -q git"
+        ;;
+esac

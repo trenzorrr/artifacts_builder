@@ -1,0 +1,14 @@
+#!/bin/sh
+
+## get scripts
+git clone https://github.com/untoreh/scripts -b utils utils
+
+case "$TRAVIS_OS_NAME" in
+    linux)
+        ## start the container
+        docker run -d --name buildct_alp -v $PWD/utils/buildscripts:/build -w /build alpine:latest /bin/sh -c "sleep 9999999999"
+
+        ## wait for packages
+        docker exec -it buildct_alp /bin/sh -c "apk add bash git"
+        ;;
+esac

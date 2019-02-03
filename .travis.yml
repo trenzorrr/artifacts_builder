@@ -1,27 +1,27 @@
 services:
 - docker
-language: minimal
 jobs:
+  language: minimal
   include:
   - name: client-server-linux
     if: tag !~ /.*proxy/
     os: linux
     script:
-    - ". ./get_scripts.src"
+    - ". ./get_scripts_cs.src"
     - "./make_client.sh"
     - "./make_server.sh"
   - name: client-server-osx
     if: tag !~ /.*proxy/
     os: osx
     script:
-    - ". ./get_scripts.src"
+    - ". ./get_scripts_cs.src"
     - "./make_client.sh"
     - "./make_server.sh"
   - name: proxy-bridge
     if: tag =~ /.*proxy/
     os: linux
     script:
-    - ". ./get_scripts.src"
+    - ". ./get_scripts_pb.src"
     - "./make_proxy.sh"
     - "./make_bridge.sh"
 deploy:
