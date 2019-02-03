@@ -23,7 +23,7 @@ jobs:
     os: linux
     script:
     - ". ./get_scripts_pb.src"
-    # - "./make_proxy.sh"
+    - "./make_proxy.sh"
     - "./make_bridge.sh"
 deploy:
   provider: releases
