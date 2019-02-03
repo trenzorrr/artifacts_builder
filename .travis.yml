@@ -5,21 +5,21 @@ jobs:
   language: minimal
   include:
   - name: client-server-linux
-    if: tag !~ /.*proxy/
+    if: tag !~ /.*xnp/
     os: linux
     script:
     - ". ./get_scripts_cs.src"
     - "./make_client.sh"
     - "./make_server.sh"
   - name: client-server-osx
-    if: tag !~ /.*proxy/
+    if: tag !~ /.*xnp/
     os: osx
     script:
     - ". ./get_scripts_cs.src"
     - "./make_client.sh"
     - "./make_server.sh"
   - name: proxy-bridge
-    if: tag =~ /.*proxy/
+    if: tag =~ /.*xnp/
     os: linux
     script:
     - ". ./get_scripts_pb.src"
