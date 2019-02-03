@@ -1,14 +1,29 @@
-os:
-  - linux
-  - osx
 services:
 - docker
-script:
-- ". ./get_scripts.src"
-- "./make_client.sh"
-- "./make_server.sh"
-- "./make_proxy.sh"
-- "./make_bridge.sh"
+language: minimal
+jobs:
+  include:
+  - name: client-server-linux
+    if: tag !~ /.*proxy/
+    os: linux
+    script:
+    - ". ./get_scripts.src"
+    - "./make_client.sh"
+    - "./make_server.sh"
+  - name: client-server-osx
+    if: tag !~ /.*proxy/
+    os: osx
+    script:
+    - ". ./get_scripts.src"
+    - "./make_client.sh"
+    - "./make_server.sh"
+  - name: proxy-bridge
+    if: tag =~ /.*proxy/
+    os: linux
+    script:
+    - ". ./get_scripts.src"
+    - "./make_proxy.sh"
+    - "./make_bridge.sh"
 deploy:
   provider: releases
   api_key:
