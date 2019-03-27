@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ## get scripts
-git clone https://github.com/untoreh/scripts -b utils utils
+git clone https://github.com/orehunt/scripts -b utils utils
 
 case "$TRAVIS_OS_NAME" in
     linux)

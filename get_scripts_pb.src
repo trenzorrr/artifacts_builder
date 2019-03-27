@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ## get scripts
-git clone --depth=1 https://github.com/untoreh/scripts -b xnp xnp
+git clone --depth=1 https://github.com/orehunt/scripts -b xnp xnp
 
 ## on linux build inside ct
 case "$TRAVIS_OS_NAME" in
