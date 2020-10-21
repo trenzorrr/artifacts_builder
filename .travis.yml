@@ -11,13 +11,13 @@ jobs:
         - ". ./get_scripts_cs.src"
         - "./make_client.sh"
         - "./make_server.sh"
-    # - name: client-server-osx
-    #   if: tag !~ /.*xnp/
-    #   os: osx
-    #   script:
-    #   - ". ./get_scripts_cs.src"
-    #   - "./make_client.sh"
-    #   - "./make_server.sh"
+      # - name: client-server-osx
+      #   if: tag !~ /.*xnp/
+      #   os: osx
+      #   script:
+      #   - ". ./get_scripts_cs.src"
+      #   - "./make_client.sh"
+      #   - "./make_server.sh"
     - name: proxy-bridge
       if: tag =~ /.*xnp/
       os: linux
