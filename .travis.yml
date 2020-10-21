@@ -1,40 +1,40 @@
 services:
-- docker
+  - docker
 if: tag IS present
 jobs:
   language: minimal
   include:
-  - name: client-server-linux
-    if: tag !~ /.*xnp/
-    os: linux
-    script:
-    - ". ./get_scripts_cs.src"
-    - "./make_client.sh"
-    - "./make_server.sh"
-  - name: client-server-osx
-    if: tag !~ /.*xnp/
-    os: osx
-    script:
-    - ". ./get_scripts_cs.src"
-    - "./make_client.sh"
-    - "./make_server.sh"
-  - name: proxy-bridge
-    if: tag =~ /.*xnp/
-    os: linux
-    script:
-    - ". ./get_scripts_pb.src"
-    - "./make_proxy.sh"
-    - "./make_bridge.sh"
+    - name: client-server-linux
+      if: tag !~ /.*xnp/
+      os: linux
+      script:
+        - ". ./get_scripts_cs.src"
+        - "./make_client.sh"
+        - "./make_server.sh"
+    # - name: client-server-osx
+    #   if: tag !~ /.*xnp/
+    #   os: osx
+    #   script:
+    #   - ". ./get_scripts_cs.src"
+    #   - "./make_client.sh"
+    #   - "./make_server.sh"
+    - name: proxy-bridge
+      if: tag =~ /.*xnp/
+      os: linux
+      script:
+        - ". ./get_scripts_pb.src"
+        - "./make_proxy.sh"
+        - "./make_bridge.sh"
 deploy:
   provider: releases
   api_key:
     secure: s/DnLnAL0Z0X7mGnVcS6O1vnaGlM8BSZGmvWG4iSKGZL9hTc13Ay0lMSVZuSl+vTUfKSSLqD11IGlOGX/6sQ5BmYnSNnQCNuKvhTIIJ1QXsYmynJQgXZXaGmpEPhWXcXx2/51tL32djCz6qghvTXbERYcrFZkhdnaJxAHK1RMb9MufwprgI6Ngu+57N1OYn6vpVrXI6sK/uIr/OIDcXvOoTISwk4gHkgP1nJHZNuSJcqpQxoIKIME82Ei7vjImn9CinXwTCfru+x4mFdOdLJ/1QqjGE8WGlKOvSOOGFSN3stY7Km1H1hQzun7eYqg+DXBIVg9jrNknV8nnSfVjItLD8wxQbLGy6vO9tNKybjkS2oFqLW1u+M5ThNIxWBAICQxzR4fjORMyMp2pQZeQvk00S46kmS7ZRcBprxXusT3Sg//O8x5cCT17oO9RZ3q3nj1d7gqRjOwXwuzlGKecSj+Pd1NfpNaz42b9YM0voWCTpWvds4aeEaJk6vBD9Y3uAOU6RdiowVXr95DDKUo8Vd7i9/938n1Vm3ezEGDiNsZyy2ZU+pbQVaZsCrGfrQ8/ht8BeX4Ajvhb9OwQUWtjHXfUEE82zfv4sJNtsCiCikLoOSm9P52U+0AH47XaXAITGxwtAlpitjgCLVD13ohVhWZYROHM04uFXWKPAqFc05aFg=
   file:
-  - utils/buildscripts/mcc
-  - utils/buildscripts/mcc_osx
-  - utils/buildscripts/mccsrv.tar.gz
-  - xnp/xnp.zip
-  - xnp/mm.zip
+    - utils/buildscripts/mcc
+    - utils/buildscripts/mcc_osx
+    - utils/buildscripts/mccsrv.tar.gz
+    - xnp/xnp.zip
+    - xnp/mm.zip
   on:
     tags: true
 after_success:
